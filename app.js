@@ -3,16 +3,17 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 
-const routes = require('./routes/index') //import routes module
+// Routes
+const routes = require('./routes/index') 
+// Archivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));    
+// Motor de plantillas
+app.set('view engine', 'ejs');  
+// Vistas 
+app.set('views', path.join(__dirname, './views'));  
 
-// static files
-app.use(express.static(path.join(__dirname, 'public')));    //middleware to set public folder direction where are static files
-
-// settings
+// Configuración del servidor
 app.set('port', process.env.PORT || 3000); //port setted or 3000
-app.set('views', path.join(__dirname, 'views'));  //create views directory with join method. "views" must be on the same directory
-app.set('view engine', 'ejs');  //select ejs as template manager
-
 
 // middlewares              https://expressjs.com/en/guide/using-middleware.html
 app.use((req, res, next) => {   //process the url's that the browser send
