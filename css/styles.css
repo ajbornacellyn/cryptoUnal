@@ -1,0 +1,98 @@
+body html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Outfit", sans-serif;
+    background: #ffffff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* No Scrollbar */
+    overflow: hidden;
+}
+
+.form-box {
+    width: 300px;
+    padding: 40px;
+    background: #3A3A3A;
+    text-align: center;
+}
+
+.form-title {
+    color: #fff;
+    /*text-transform: uppercase;*/
+}
+
+.unal {
+    color: #94B43B;
+}
+
+.mini {
+    color: #fff;
+    font-size: 13px;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+.form-box input[type="text"], .form-box input[type="password"], .form-box button[type="submit"] {
+    border: 0;
+    background: none;
+
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #94B43B;
+    padding: 7px 5px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 12px;
+    transition: 0.25s;
+
+}
+
+
+.form-box input[type="text"]:focus, .form-box input[type="password"]:focus {
+    width: 210px;
+    border-color: #ffffff;
+}
+
+.form-box button[type="submit"] {
+    border: 0;
+    background: #94B43B;
+
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #94B43B;
+    padding: 14px 40px;
+    outline: none;
+
+    color: white;
+    border-radius: 12px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+
+
+
+.form-box button[type="submit"]:hover {
+    background: none;
+}
+
+input[type="checkbox"] + label {
+    color: #fff;
+}
+
+input[type="checkbox"]:checked + label {
+    color: #94B43B;
+}
+
