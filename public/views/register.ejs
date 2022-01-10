@@ -1,0 +1,21 @@
+<%- include('partials/head') %>
+
+    <h1>Register</h1>
+
+    <form action="index.html" class="form-box animated fadeInUp">
+        <h1 class="form-title">Information</h1>
+        <input type="text" placeholder="name" autofocus>
+        <input type="text" placeholder="email" autofocus>
+        <input type="password" placeholder="password">
+        <input type="password" placeholder="confirm password">
+        <h1 class="form-title no-margin">Wallets</h1>
+        <p class="mini no-margin">tab to select</p>
+        <input type="checkbox" id="Bitcoin"><label for="Bitcoin">Bitcoin</label>
+        <input type="checkbox" id="Ethereum"><label for="Ethereum">Ethereum</label>
+        <button type="submit">
+            Register
+        </button>
+    </form>
+
+<%- include('partials/footer') %>
+
