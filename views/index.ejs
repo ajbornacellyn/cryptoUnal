@@ -1,14 +1,33 @@
 <%- include('partials/head') %>
 
+    <div class="container">        
+        <form action="index.html" class="form-box animated fadeInUp">
 
-    <h2><a href="/register"> <%= test %> </a></h2>
-    <form action="index.html" class="form-box animated fadeInUp">
-        <h1 class="form-title">Crypto<b class="unal">UNAL<b></h1>
-        <input type="text" placeholder="email" autofocus>
-        <input type="password" placeholder="password">
-        <button type="submit">
-            Login
-        </button>
-    </form>
+            <h1 class="form-title">Crypto<b class="unal">UNAL<b></h1>
+            
+            <div class="inner_container">
+
+            <div class="input-wrapper">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="email">
+            </div>            
+            
+            <div class="input-wrapper">
+                <i class="fas fa-key"></i>
+                <input type="password" placeholder="password">
+            </div>   
+
+            
+            <button type="submit">
+                Login
+            </button>
+           
+
+            <a href="/register"> I don't have an account </a>             
+            
+            </div>
+            
+        </form>        
+    </div>
     
 <%- include ('partials/footer') %>

@@ -1,31 +1,52 @@
-body html {
-    height: 100%;
+body {    
+    font-family: "Outfit", sans-serif;
+    background: #3A3A3A;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Outfit", sans-serif;
-    background: #ffffff;
+.icon::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    /* No Scrollbar */
-    overflow: hidden;
+    align-items: center;    
+    overflow: hidden;     
+    height: 100vh;
 }
 
-.form-box {
-    width: 300px;
-    padding: 40px;
-    background: #3A3A3A;
+.form-box {        
     text-align: center;
 }
+
 
 .form-title {
     color: #fff;
     /*text-transform: uppercase;*/
+}
+
+.input-wrapper {
+    display: inline-block;
+    position: relative;  
+    width: 70%;    
+}
+
+.form-box a {
+    text-decoration: none;
+    color: #94B43B;
+}
+
+.input-wrapper i{
+    position: absolute;
+    left: 10%;
+    top: 35%;
+    color: #94B43B;
 }
 
 .unal {
@@ -44,55 +65,118 @@ body {
 .form-box input[type="text"], .form-box input[type="password"], .form-box button[type="submit"] {
     border: 0;
     background: none;
-
     display: block;
     margin: 10px auto;
     text-align: center;
-    border: 2px solid #94B43B;
+    border-bottom: 2px solid #94B43B;
     padding: 7px 5px;
-    width: 200px;
+    width: 83.6%;
     outline: none;
-    color: white;
-    border-radius: 12px;
+    color: white;    
     transition: 0.25s;
-
 }
 
-
 .form-box input[type="text"]:focus, .form-box input[type="password"]:focus {
-    width: 210px;
+    width: 87.5%;
     border-color: #ffffff;
 }
 
 .form-box button[type="submit"] {
     border: 0;
     background: #94B43B;
-
     display: block;
     margin: 20px auto;
     text-align: center;
     border: 2px solid #94B43B;
     padding: 14px 40px;
     outline: none;
-
+    width:60%;
     color: white;
     border-radius: 12px;
     transition: 0.25s;
     cursor: pointer;
 }
 
-
-
-
 .form-box button[type="submit"]:hover {
     background: none;
 }
 
-input[type="checkbox"] + label {
-    color: #fff;
+
+input[type='checkbox'] {
+    display:none;       
 }
 
-input[type="checkbox"]:checked + label {
-    color: #94B43B;
+label{    
+    display: inline-block;    
+    margin: 1rem;   
+    text-align: center;
+    border: 2px solid #94B43B;
+    padding: 14px 40px;
+    outline: none; 
+    color: white;
+    border-radius: 12px;
+    transition: 0.25s;
+    cursor: pointer;
 }
 
+label:hover{
+    background: #94B43B;    
+}
+
+/* checked */
+.cryptocurrency:checked + .cryptocurrency_label{   
+    color: white;    
+    background: #94B43B;
+}
+/* checked */
+
+
+
+@media only screen and (min-width: 850px){
+    .container{
+        width: 60%;
+        margin: auto;
+    }
+    .form-box{
+        width: 100%;
+    }
+    .input-wrapper{
+        padding: 5% 0%;
+    }
+    .inner_container{
+        width: 100%;
+        display: grid;       
+        grid-template-rows: 45% 45%;    
+        column-gap: 5px;               
+        grid-auto-flow: column;
+        align-items: center;
+        justify-items: center;
+    }    
+    .form-box button[type="submit"] {        
+        width:45%;       
+        margin: 3% 0%;           
+    }
+    .inner_container a{
+        margin: 5%;
+        padding: 14px 0px;      
+    }
+    .form-box input[type="text"]:focus, .form-box input[type="password"]:focus {
+        width: 98%;        
+    }
+
+    .inner_container_register{
+        width: 100%;
+        display: grid;       
+        grid-template-rows: 25% 25% 25% 25%;    
+        column-gap: 5px;               
+        grid-auto-flow: column;
+        align-items: center;
+        justify-items: center;
+    }
+    .register_button{
+        display: block;
+        margin:auto;
+    }
+
+    
+} 

@@ -1,21 +1,55 @@
 <%- include('./partials/head') %>
 
-    <h1>Register</h1>
+    <div class="container">        
 
-    <form action="index.html" class="form-box animated fadeInUp">
-        <h1 class="form-title">Information</h1>
-        <input type="text" placeholder="name" autofocus>
-        <input type="text" placeholder="email" autofocus>
-        <input type="password" placeholder="password">
-        <input type="password" placeholder="confirm password">
-        <h1 class="form-title no-margin">Wallets</h1>
-        <p class="mini no-margin">tab to select</p>
-        <input type="checkbox" id="Bitcoin"><label for="Bitcoin">Bitcoin</label>
-        <input type="checkbox" id="Ethereum"><label for="Ethereum">Ethereum</label>
-        <button type="submit">
-            Register
-        </button>
-    </form>
+        <form action="index.html" class="form-box animated fadeInUp">
+
+            <h1 class="form-title">Register</h1>
+
+            <div class="inner_container_register">
+                <div class="input-wrapper">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="name">
+                </div>
+
+                <div class="input-wrapper">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="email">
+                </div>
+
+                <div class="input-wrapper">
+                    <i class="fas fa-key"></i>
+                    <input type="password" placeholder="password">
+                </div>
+
+                <div class="input-wrapper">
+                    <input type="password" placeholder="confirm password">
+                </div>           
+                
+                <div>
+                <h1 class="form-title">Wallets</h1>
+                <p class="mini no-margin"> Tap to select</p> 
+                </div>
+
+                <div>
+                <input type="checkbox" class="cryptocurrency" id="Bitcoin">
+                <label class="cryptocurrency_label" for="Bitcoin">    
+                    Bitcoin            
+                </label>
+
+                <input type="checkbox"  class="cryptocurrency" id="Ethereum">
+                <label class="cryptocurrency_label" for="Ethereum">      
+                    Ethereum          
+                </label>
+
+                </div>
+
+                <button class="register_button" type="submit">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>
 
 <%- include('./partials/footer') %>
 
