@@ -18,6 +18,13 @@
 --
 -- Table structure for table `transactions`
 --
+CREATE SCHEMA IF NOT EXISTS `CryptoUNAL`;
+USE `CryptoUNAL`;
+
+CREATE USER 'EDIT_CRYPTO_USER'@'localhost' IDENTIFIED BY '123';
+
+GRANT ALL PRIVILEGES ON CryptoUNAL.* TO 'EDIT_CRYPTO_USER'@'localhost';
+FLUSH PRIVILEGES;
 
 DROP TABLE IF EXISTS `transactions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -107,3 +114,15 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-01-03 15:31:56
+
+DROP PROCEDURE IF EXISTS retrieve_user_data;
+
+delimiter //
+
+CREATE PROCEDURE retrieve_user_data (IN user varchar(256), IN hashed_password varchar(256))
+begin
+SELECT * FROM users WHERE (username = user AND hash_password = hashed_password);
+end;
+//
+
+delimiter ;

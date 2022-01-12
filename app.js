@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Routes
-const routes = require('./routes/index') 
+const login_register = require('./routes/login_register');
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));    
 // Motor de plantillas
@@ -24,12 +24,8 @@ app.use((req, res, next) => {   //process the url's that the browser send
 app.use(express.json());
 app.use(express.urlencoded({exteded: false})); 
 
-
 // routes
-app.use(routes); //use routes to define the url's
-
-
-
+app.use(login_register); 
 
 
 // start server
