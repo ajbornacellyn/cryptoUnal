@@ -6,4 +6,3 @@ const { doTransaction } = require('../controllers/transaction')
 router.get('/transaction', renderTransaction);
 
 router.post('/transaction', doTransaction);
-});
