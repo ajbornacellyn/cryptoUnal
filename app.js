@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require('path');
 const bodyParser = require('body-parser');
+const {sessionInfo} = require('./middleware/session')
 const app = express();
 
 // Routes
@@ -22,7 +23,8 @@ app.use((req, res, next) => {   //process the url's that the browser send
 });
 
 app.use(express.json());
-app.use(express.urlencoded({exteded: false})); 
+app.use(express.urlencoded({extended: false})); 
+app.use(sessionInfo);
 
 // routes
 app.use(login_register); 

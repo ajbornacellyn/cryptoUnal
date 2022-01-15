@@ -8,7 +8,9 @@ const renderLogin = (req, res) => {
 
 const renderRegister = (req, res) => {
     res.render('register', {
-        title: `User registration`
+        title: `User registration`,
+        confirmationError: "true",
+        emailError: "false"
     })
 }
 
