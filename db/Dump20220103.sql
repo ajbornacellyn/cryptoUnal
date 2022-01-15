@@ -18,6 +18,8 @@
 --
 -- Table structure for table `transactions`
 --
+CREATE SCHEMA IF NOT EXISTS `CryptoUNAL`;
+USE `CryptoUNAL`;
 
 DROP TABLE IF EXISTS `transactions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -54,7 +56,8 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `iduser` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) NOT NULL,
+  `username` varchar(64) DEFAULT 'user',
+  `email` varchar(256) NOT NULL,
   `hash_password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`iduser`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
@@ -66,7 +69,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'user1','pass1'),(2,'user2','pass2'),(3,'user3','pass3'),(4,'user4','pass4'),(5,'user5','pass5');
+INSERT INTO `users`(iduser,email,hash_password) VALUES (1,'user1@email.com','pass1'),(2,'user2@email.com','pass2'),(3,'user3@email.com','pass3'),(4,'user4@email.com','pass4'),(5,'user5@email.com','pass5');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,3 +110,29 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-01-03 15:31:56
+
+DROP PROCEDURE IF EXISTS retrieve_user_data;
+DROP PROCEDURE IF EXISTS verify_email_register;
+DROP PROCEDURE IF EXISTS register_user;
+
+delimiter //
+
+CREATE PROCEDURE retrieve_user_data (IN email_form varchar(256), IN hashed_password varchar(256))
+begin
+SELECT * FROM users WHERE (email = email_form AND hash_password = hashed_password);
+end;
+//
+
+CREATE PROCEDURE verify_email_register (IN email_form varchar(256))
+begin
+SELECT * FROM users WHERE email = email_form;
+END;
+//
+
+CREATE PROCEDURE register_user (IN user varchar(256), IN email_form varchar(256), IN hashed_password varchar(256)) 
+begin 
+INSERT INTO users(username, email, hash_password) VALUES (user,email_form,hashed_password);
+end;
+//
+
+delimiter ;

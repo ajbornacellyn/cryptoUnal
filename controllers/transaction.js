@@ -48,4 +48,10 @@ const signTransaction = (puba1, amount) => {
 
 };
 
-module.exports = {signTransaction};
+const doTransaction = async(req, res) => {
+    const {recipient, amount } = req.body;
+    await signTransaction(recipient, amount);
+    res.send('transaction made');
+}
+
+module.exports = {doTransaction};

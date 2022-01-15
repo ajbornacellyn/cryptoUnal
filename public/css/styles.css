@@ -62,7 +62,7 @@ body {
     margin: 0px;
 }
 
-.form-box input[type="text"], .form-box input[type="password"], .form-box button[type="submit"] {
+.form-box input[type="text"], .form-box input[type="email"] , .form-box input[type="password"], .form-box button[type="submit"] {
     border: 0;
     background: none;
     display: block;
@@ -76,7 +76,7 @@ body {
     transition: 0.25s;
 }
 
-.form-box input[type="text"]:focus, .form-box input[type="password"]:focus {
+.form-box input[type="text"]:focus, .form-box input[type="email"]:focus, .form-box input[type="password"]:focus {
     width: 87.5%;
     border-color: #ffffff;
 }
