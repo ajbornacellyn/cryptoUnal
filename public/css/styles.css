@@ -130,6 +130,74 @@ label:hover{
 }
 /* checked */
 
+/** Homepage **/
+
+#homepage .page__title {
+    color: #3A4F3A;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#homepage .page__title--bold {
+    color: #94B43B;
+}
+
+#homepage .wallets {
+    background: #3A4F3A;
+    border-radius: 18px;
+    width: calc(50% - 20px);
+    margin: 20px;
+}
+
+#homepage .wallets__title {
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+#homepage .crypto{
+    display: flex;
+    flex-direction: row;
+}
+
+#homepage .crypto__figure {
+    padding: 0 5px 10px 10px;
+}
+
+#homepage .crypto__data {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+}
+
+#homepage .crypto__data--currency {
+    color: white;
+}
+
+#homepage .crypto__data--exchange {
+    color: grey;
+}
+
+#homepage .crypto__text {
+    margin-right: 5px;
+}
+
+#homepage .history {
+    background: #94B43B;
+    border-radius: 18px;
+    width: calc(50% - 20px);
+    margin: 20px;
+}
+
+#homepage .history__title {
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+/** Responsive **/
 
 
 @media only screen and (min-width: 850px){
