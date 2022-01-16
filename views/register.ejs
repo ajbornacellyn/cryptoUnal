@@ -1,29 +1,32 @@
 <%- include('./partials/head') %>
-
+<body>
     <div class="container">        
 
-        <form action="index.html" class="form-box animated fadeInUp">
+        <form action="" class="form-box animated fadeInUp" method="POST">
 
             <h1 class="form-title">Register</h1>
 
             <div class="inner_container_register">
                 <div class="input-wrapper">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="name">
+                    <input type="text" name = "name"
+                    placeholder="name" required>
                 </div>
 
                 <div class="input-wrapper">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="email">
+                    <input type="email" name="email"
+                    placeholder="email" required>
                 </div>
 
                 <div class="input-wrapper">
                     <i class="fas fa-key"></i>
-                    <input type="password" placeholder="password">
+                    <input type="password" name="password"
+                    placeholder="password" required>
                 </div>
 
                 <div class="input-wrapper">
-                    <input type="password" placeholder="confirm password">
+                    <input type="password"  name="password_confirmation" placeholder="confirm password" required>
                 </div>           
                 
                 <div>
@@ -32,12 +35,12 @@
                 </div>
 
                 <div>
-                <input type="checkbox" class="cryptocurrency" id="Bitcoin">
+                <input type="checkbox" class="cryptocurrency" id="Bitcoin" name="bitcoin">
                 <label class="cryptocurrency_label" for="Bitcoin">    
                     Bitcoin            
                 </label>
 
-                <input type="checkbox"  class="cryptocurrency" id="Ethereum">
+                <input type="checkbox"  class="cryptocurrency" id="Ethereum" name="ethereum">
                 <label class="cryptocurrency_label" for="Ethereum">      
                     Ethereum          
                 </label>
@@ -51,5 +54,7 @@
         </form>
     </div>
 
+    <script src="/js/client_registration.js" defer> </script>
+</body>
 <%- include('./partials/footer') %>
 

@@ -1,0 +1,25 @@
+<%- include('partials/head') %>
+<body>
+    <div class="container">        
+        <form action="/transaction" class="form-box animated fadeInUp" method="POST">
+            
+            <div class="inner_container">
+
+                <div>
+                    <input type="text" placeholder="recipient" name="recipient" required>
+                </div>            
+                
+                <div>
+                    <input type="number" name="amount" placeholder="amount(eth)" min="0" required>
+                </div>   
+
+                <button type="submit">
+                    Send
+                </button>      
+            
+            </div>
+            
+        </form>        
+    </div>
+</body>
+<%- include ('partials/footer') %>

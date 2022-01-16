@@ -1,10 +1,11 @@
 const express = require("express");
 const path = require('path');
 const bodyParser = require('body-parser');
+const {sessionInfo} = require('./middleware/session')
 const app = express();
 
 // Routes
-const routes = require('./routes/index') 
+const login_register = require('./routes/login_register');
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));    
 // Motor de plantillas
@@ -22,14 +23,11 @@ app.use((req, res, next) => {   //process the url's that the browser send
 });
 
 app.use(express.json());
-app.use(express.urlencoded({exteded: false})); 
-
+app.use(express.urlencoded({extended: false})); 
+app.use(sessionInfo);
 
 // routes
-app.use(routes); //use routes to define the url's
-
-
-
+app.use(login_register); 
 
 
 // start server
