@@ -80,8 +80,8 @@ DROP TABLE IF EXISTS `wallets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wallets` (
-  `idwallet` int,
-  `wallet_address` LONGTEXT NOT NULL,
+  `idwallet` int not null AUTO_INCREMENT,
+  `wallet_address` JSON NOT NULL,
   `type` varchar(3) DEFAULT NULL,
   `users_iduser` int NOT NULL,
   PRIMARY KEY (`idwallet`,`users_iduser`),
@@ -130,14 +130,13 @@ SELECT * FROM users WHERE email = email_form;
 END;
 //
 
-CREATE PROCEDURE register_user (IN user varchar(256), IN email_form varchar(256), IN hashed_password LONGTEXT) 
+CREATE PROCEDURE register_user (IN user varchar(256), IN email_form varchar(256), IN hashed_password varchar(256)) 
 begin 
 INSERT INTO users(username, email, hash_password) VALUES (user,email_form,hashed_password);
 SELECT users.iduser FROM users WHERE users.email = email_form;
 end;
+
+CREATE PROCEDURE find_Wallets (IN )
 //
 
-CREATE PROCEDURE createWallet (IN user int, IN cryptocurrency varchar(3), IN encryptedWallet VARCHAR(256))
-BEGIN
-INSERT INTO wallets (wallet_address, type , users_iduser) values (encryptedWallet, cryptocurrency, user);	
 delimiter ;
