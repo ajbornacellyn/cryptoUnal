@@ -16,8 +16,8 @@ router.get('/transaction', (req, res) => {
 });
 
 router.post('/transaction', async(req, res, next) => {
-    const {recipient, amount } = req.body;
-    await signTransaction(recipient, amount);
+    const {sender, senderkey, recipient, amount } = req.body;
+    await signTransaction(sender, senderkey, recipient, amount);
     res.send('transaction made');
 });
 
