@@ -1,4 +1,6 @@
 const { render } = require('express/lib/response');
+const { getBalanceETH } = require('../utils/getBalance')
+
 
 const renderLogin = (req, res) => {
     req.session.destroy();
@@ -24,7 +26,8 @@ const renderTransaction = (req, res) => {
 
 const renderHomepage = (req, res, user) => {
     if (req.query.authenticated === 'true' && req.session.iduser){
-        res.render('home' , {
+        res.render('home', {
+            balance: getBalanceETH(req.session.publicKey),
             title: 'Welcome',            
             name: req.session.username
         })
