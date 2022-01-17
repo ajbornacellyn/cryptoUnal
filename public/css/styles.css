@@ -132,6 +132,22 @@ label:hover{
 
 /** Homepage **/
 
+#homepage * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+#homepage body {    
+    font-family: "Outfit", sans-serif;
+    /* background: #3A3A3A; */
+}
+
+#homepage main {
+    display: flex;
+    flex-direction: row;
+}
+
 #homepage .page__title {
     color: #3A4F3A;
     text-align: center;
@@ -146,7 +162,7 @@ label:hover{
     background: #3A4F3A;
     border-radius: 18px;
     width: calc(50% - 20px);
-    margin: 20px;
+    margin: 20px 10px 20px 20px;
 }
 
 #homepage .wallets__title {
@@ -187,7 +203,7 @@ label:hover{
     background: #94B43B;
     border-radius: 18px;
     width: calc(50% - 20px);
-    margin: 20px;
+    margin: 20px 20px 20px 10px;
 }
 
 #homepage .history__title {
@@ -197,54 +213,31 @@ label:hover{
     padding: 20px 0;
 }
 
-/** Responsive **/
+#homepage .transaction {
+    display: flex;
+    flex-direction: row;
+}
 
+#homepage .transaction__figure {
+    padding: 0 5px 10px 10px;
+}
 
-@media only screen and (min-width: 850px){
-    .container{
-        width: 60%;
-        margin: auto;
-    }
-    .form-box{
-        width: 100%;
-    }
-    .input-wrapper{
-        padding: 5% 0%;
-    }
-    .inner_container{
-        width: 100%;
-        display: grid;       
-        grid-template-rows: 45% 45%;    
-        column-gap: 5px;               
-        grid-auto-flow: column;
-        align-items: center;
-        justify-items: center;
-    }    
-    .form-box button[type="submit"] {        
-        width:45%;       
-        margin: 3% 0%;           
-    }
-    .inner_container a{
-        margin: 5%;
-        padding: 14px 0px;      
-    }
-    .form-box input[type="text"]:focus, .form-box input[type="password"]:focus {
-        width: 98%;        
-    }
+#homepage .transaction__data {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+}
 
-    .inner_container_register{
-        width: 100%;
-        display: grid;       
-        grid-template-rows: 25% 25% 25% 25%;    
-        column-gap: 5px;               
-        grid-auto-flow: column;
-        align-items: center;
-        justify-items: center;
-    }
-    .register_button{
-        display: block;
-        margin:auto;
-    }
+#homepage .transaction__data {
+    color: #3A4F3A;
+}
 
-    
-} 
+#homepage .transaction__text {
+    margin-right: 5px;
+}
+
+#homepage .transaction__data-conteiner {
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+}
