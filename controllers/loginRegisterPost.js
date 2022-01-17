@@ -30,8 +30,8 @@ const registerUser = async(req,res) => {
                 console.log("yes");
                 cartera = await createEthereumWallet();
                 id = id[0][0].iduser;
-                console.log(JSON.stringify(cartera[2][0]).length);
-                await add_Wallet(id,'eth', `${JSON.stringify(cartera[2][0])}`);
+                console.log(JSON.stringify(cartera[2][0]));
+                await add_Wallet(id,'eth', cartera[2][0]);
                 res.send(`<script> alert("The account has been created with an ethereum wallet encrypted using this password: ${cartera[1]} \\nStore it in a safe place!"); window.location.href = "/"; </script>`)
             }
             else{
