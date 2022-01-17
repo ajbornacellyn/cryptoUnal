@@ -7,7 +7,7 @@ const getUserLogin = async(req,res) => {
     const {email , password } = req.body;    
     result = await verify_user(email,password);
     if (result[0].length !== 0){    
-        req.session.id = result[0][0].iduser;                      
+        req.session.iduser = result[0][0].iduser;                      
         req.session.username =  result[0][0].username;        
         res.status(200).redirect('/home?authenticated=true');
     }
