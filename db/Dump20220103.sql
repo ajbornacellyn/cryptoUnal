@@ -3,7 +3,6 @@
 -- Host: 127.0.0.1    Database: cryptounal
 -- ------------------------------------------------------
 -- Server version	8.0.27
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -26,8 +25,8 @@ DROP TABLE IF EXISTS `transactions`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transactions` (
   `idtransaction` int NOT NULL AUTO_INCREMENT,
-  `wallet_sender` varchar(45) DEFAULT NULL,
-  `wallet_receiver` varchar(45) DEFAULT NULL,
+  `wallet_sender` varchar(256) DEFAULT NULL,
+  `wallet_receiver` varchar(256) DEFAULT NULL,
   `amount` decimal(10,5) DEFAULT NULL,
   `gas_fee` decimal(10,5) DEFAULT NULL,
   `wallets_idwallet` int NOT NULL,
@@ -81,7 +80,8 @@ DROP TABLE IF EXISTS `wallets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wallets` (
-  `idwallet` int NOT NULL AUTO_INCREMENT,
+  `idwallet` int,
+  `wallet_address` LONGTEXT NOT NULL,
   `type` varchar(3) DEFAULT NULL,
   `users_iduser` int NOT NULL,
   PRIMARY KEY (`idwallet`,`users_iduser`),
@@ -96,7 +96,7 @@ CREATE TABLE `wallets` (
 
 LOCK TABLES `wallets` WRITE;
 /*!40000 ALTER TABLE `wallets` DISABLE KEYS */;
-INSERT INTO `wallets` VALUES (1,'btc',1),(2,'eth',1),(3,'eth',2),(4,'sol',4),(5,'sol',3),(6,'sol',1);
+/* INSERT INTO `wallets` VALUES (1,'btc',1),(2,'eth',1),(3,'eth',2),(4,'sol',4),(5,'sol',3),(6,'sol',1); */
 /*!40000 ALTER TABLE `wallets` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -114,6 +114,7 @@ UNLOCK TABLES;
 DROP PROCEDURE IF EXISTS retrieve_user_data;
 DROP PROCEDURE IF EXISTS verify_email_register;
 DROP PROCEDURE IF EXISTS register_user;
+DROP PROCEDURE IF EXISTS createWallet;
 
 delimiter //
 
@@ -129,10 +130,14 @@ SELECT * FROM users WHERE email = email_form;
 END;
 //
 
-CREATE PROCEDURE register_user (IN user varchar(256), IN email_form varchar(256), IN hashed_password varchar(256)) 
+CREATE PROCEDURE register_user (IN user varchar(256), IN email_form varchar(256), IN hashed_password LONGTEXT) 
 begin 
 INSERT INTO users(username, email, hash_password) VALUES (user,email_form,hashed_password);
+SELECT users.iduser FROM users WHERE users.email = email_form;
 end;
 //
 
+CREATE PROCEDURE createWallet (IN user int, IN cryptocurrency varchar(3), IN encryptedWallet VARCHAR(256))
+BEGIN
+INSERT INTO wallets (wallet_address, type , users_iduser) values (encryptedWallet, cryptocurrency, user);	
 delimiter ;

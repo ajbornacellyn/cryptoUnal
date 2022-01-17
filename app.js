@@ -6,6 +6,7 @@ const app = express();
 
 // Routes
 const login_register = require('./routes/login_register');
+const home = require('./routes/mainPage');
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));    
 // Motor de plantillas
@@ -27,7 +28,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(sessionInfo);
 
 // routes
-app.use(login_register); 
+app.use('/', login_register); 
+app.use('/home', home);
 
 
 // start server

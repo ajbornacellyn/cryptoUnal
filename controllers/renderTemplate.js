@@ -1,6 +1,8 @@
 const { render } = require('express/lib/response');
 
 const renderLogin = (req, res) => {
+    req.session.destroy();
+    console.log(req.session);
     res.render('index', {
         title: `Welcome to cryptoUNAL`
     })
@@ -20,4 +22,17 @@ const renderTransaction = (req, res) => {
     })
 }
 
-module.exports = {renderLogin, renderRegister, renderTransaction}
+const renderHomepage = (req, res, user) => {
+    if (req.query.authenticated === 'true' && req.session.userid){
+        res.render('home' , {
+            title: 'Welcome',            
+            name: req.session.username
+        })
+    }
+    else{
+        res.send('<script> alert("The user does not exist or you entered a wrong password"); window.location.href = "/"; </script>');  
+    }
+    
+}
+
+module.exports = {renderLogin, renderRegister, renderTransaction, renderHomepage}
