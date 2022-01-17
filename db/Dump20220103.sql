@@ -135,8 +135,12 @@ begin
 INSERT INTO users(username, email, hash_password) VALUES (user,email_form,hashed_password);
 SELECT users.iduser FROM users WHERE users.email = email_form;
 end;
+//
 
-CREATE PROCEDURE find_Wallets (IN )
+CREATE PROCEDURE get_encryptedwallet (IN id int)
+begin
+	SELECT * FROM wallets WHERE users_iduser = id;
+end;
 //
 
 delimiter ;
